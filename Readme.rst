@@ -1,4 +1,3 @@
-##################
 SFML Personal Exploration Project
 ##################
 
@@ -8,8 +7,9 @@ SFML Personal Exploration Project
 
 This is a test of my first use of SFML, small fast multimedia library, so I can begin learning it to create games.
 
-###########
+
 To be able to build these files, you need the SFML libraries.
+################
 
 To install on linux use::
 
@@ -18,8 +18,8 @@ To install on linux use::
 For MacOS and Windows, use the corresponding tutorial.
 http://www.sfml-dev.org/tutorials/2.4/
 
-##########
 The Program
+################
 
 The program currently read 4 types of events and displays messages in the console. Work is in progress. The makefile has the following commands.
 
