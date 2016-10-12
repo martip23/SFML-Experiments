@@ -1,7 +1,7 @@
 #file name may be changed without affecting whole file
-dfdfdfdafsdfasdfsdafdsfasdfsadfsadfasdfsadfasdfsdzxcv#dollar sign before, and surrounding them in parentheses
+#dollar sign before, and surrounding them in parentheses
 #e.g. g++ $(TARGET) calls g++ on target.
-TARGET	= SMFLdsfsd
+TARGET	= SMFL
 
 # Tools
 RM 	= rm -f
@@ -9,7 +9,7 @@ GXX 	= g++
 GXXFLAGS= -g -Wall -std=c++11 -Wextra
 LINKS 	= -lsfml-system -lsfml-window -lsfml-graphics -lsfml-audio lsfml-network
 
- dsfFILES 	= $(wildcard *.cpp)
+FILES = $(wildcard *.cpp)
 OBJS 	= $(wildcard *.o)
 ASMS 	= $(wildcard *.s)
 
@@ -28,7 +28,7 @@ all:	$(TARGET)
 # you don't have to run make clean, you can just
 # run make
 $(TARGET): $(OBJS)
-	$(GCC) $(FLAGS) -o $@ $^ $( )
+	$(GCC) $(FLAGS) $^ -o $@ $( )
 	
 # this one doesn't really create any files,
 # but it can be used like a command
