@@ -1,18 +1,10 @@
 #file name may be changed without affecting whole file
+#THESE ARE VARIABLES, they are called by putting a 
 #dollar sign before, and surrounding them in parentheses
 #e.g. g++ $(TARGET) calls g++ on target.
 TARGET	= SMFL
-
-# Tools
-RM 	= rm -f
-GXX 	= g++
-GXXFLAGS= -g -Wall -std=c++11 -Wextra
-LINKS 	= -lsfml-system -lsfml-window -lsfml-graphics -lsfml-audio lsfml-network
-
-FILES = $(wildcard *.cpp)
-OBJS 	= $(wildcard *.o)
-ASMS 	= $(wildcard *.s)
-
+RM 		= rm -f
+LINKS 	= -lsfml-system -lsfml-window -lsfml-graphics
 
 # The terms to the right on the same line
 # as a command declaration are dependencies
@@ -27,9 +19,12 @@ all:	$(TARGET)
 # make does not recompile. This is good because
 # you don't have to run make clean, you can just
 # run make
-$(TARGET): $(OBJS)
-	$(GCC) $(FLAGS) $^ -o $@
+$(TARGET): main.o
+	g++ main.cpp -o $(TARGET) $(LINKS)
 	
+main.o: main.cpp
+	g++ -c main.cpp
+
 # this one doesn't really create any files,
 # but it can be used like a command
 # this makes it so you can type make run
