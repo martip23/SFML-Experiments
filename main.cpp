@@ -5,9 +5,27 @@
 
 int main()
 {
+    //Initialize variables
+    float spritePosX = 395;
+    float spritePosY = 295;
     //Create window
     sf::RenderWindow window(sf::VideoMode(800, 600), "Game v0.1");
 
+    //Load textures
+    sf::Texture texture;
+    if (!texture.loadFromFile("./Sprites/Sprites.png")){
+        std::cout << "Could not load file" << std::endl;
+        }
+
+    //Create sprite with texture
+    sf::Sprite sprite;
+
+    //Set sprite texture
+    sprite.setTexture(texture);
+    sprite.setTextureRect(sf::IntRect(19,19,10,15));
+    sprite.setScale(sf::Vector2f(5.0, 5.0));
+    sprite.setPosition(sf::Vector2f(spritePosX, spritePosY));
+                
     // run the program as long as the window is open
     while (window.isOpen())
     {
@@ -33,9 +51,9 @@ int main()
         }
 
         //Colors window the lovely color, black
+        window.clear(sf::Color::White);
 
-        window.clear(sf::Color::Black);
-
+        window.draw(sprite);
 
         window.display();
     }
