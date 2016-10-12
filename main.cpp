@@ -6,29 +6,46 @@
 int main()
 {
     //Initialize variables
-    float spritePosX = 395;
-    float spritePosY = 295;
+    int windowXSize     = 800;
+    int windowYSize     = 600;
+    float characterPosX    = 395;
+    float characterPosY    = 295;
+    int movementSpeed   = 1;
+    
     //Create window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Game v0.1");
+    sf::RenderWindow window(sf::VideoMode(windowXSize, windowYSize), "Game v0.2");
+    sf::Clock clock; //Start clock for frame limiter
 
     //Load textures
     sf::Texture texture;
     if (!texture.loadFromFile("./Sprites/Sprites.png")){
         std::cout << "Could not load file" << std::endl;
-        }
+    }
 
-    //Create sprite with texture
-    sf::Sprite sprite;
+    sf::Texture bgTexture;
+    if (!bgTexture.loadFromFile("./Textures/Overworld.png", sf::IntRect(0,100,50,50))){
+        std::cout << "Could not load background texture" << std::endl;
+    }
 
-    //Set sprite texture
-    sprite.setTexture(texture);
-    sprite.setTextureRect(sf::IntRect(19,19,10,15));
-    sprite.setScale(sf::Vector2f(5.0, 5.0));
-    sprite.setPosition(sf::Vector2f(spritePosX, spritePosY));
+    //Set background using texture
+    bgTexture.setRepeated(true);  //Set texture to repeat on background box
+    sf::Sprite background;
+    background.setTexture(bgTexture);
+    background.setTextureRect(sf::IntRect(0,0,windowXSize,windowYSize));
+
+    //Create character with texture
+    sf::Sprite character;
+
+    character.setTexture(texture);
+    character.setTextureRect(sf::IntRect(19,19,10,15));
+    character.setScale(sf::Vector2f(5.0, 5.0));
                 
     // run the program as long as the window is open
     while (window.isOpen())
     {
+        //Draw character at certain position
+        character.setPosition(sf::Vector2f(characterPosX, characterPosY));
+
         // check all the window's events that were triggered
         // since the last iteration of the loop
         sf::Event event;
@@ -48,12 +65,35 @@ int main()
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
                 std::cout << "Mouse is being crushed!!" << std::endl;
             }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
+                window.close();
+            }
         }
 
-        //Colors window the lovely color, black
-        window.clear(sf::Color::White);
+        // Use keyboard class for *smooth* keyboard input
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
+            characterPosX -= movementSpeed;
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
+            characterPosX += movementSpeed;
+        }       
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
+            characterPosY += movementSpeed;
+        }       
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
+            characterPosY -= movementSpeed;
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)){
+            movementSpeed = 3;
+        }
+        else {movementSpeed = 1;}
+        while (clock.getElapsedTime().asMilliseconds() < 10);
 
-        window.draw(sprite);
+        clock.restart();
+
+        //Colors window the lovely color, black
+        window.draw(background);
+        window.draw(character);
 
         window.display();
     }
