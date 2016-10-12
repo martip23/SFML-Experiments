@@ -26,3 +26,15 @@ The program currently read 4 types of events and displays messages in the consol
 :make: Build executable and .o files
 :make run: Run the exectuable
 :make clean: Clean up because we're not animals
+
+Gameplay
+******************
+
+SFML Experiments is a minimalist role playing dungeon crawler currently lacking dungeons, an inventory system, monsters, health point system among other things. 
+
+To play, run the executable. Use the arrow keys to move left, right, up or down. 
+Use shift to sprint!
+
+Careful not to go to the edge of the screen! Nothing happens, but it's a glaring flaw in the game that we'd rather keep under wraps. 
+
+Enjoy!
