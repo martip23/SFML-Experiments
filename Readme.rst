@@ -44,6 +44,7 @@ Update Log
 
 v0.2 - Now we're talkin':
 =========
+:
 
 -Added character sprite
 -Added badass background
@@ -51,8 +52,10 @@ v0.2 - Now we're talkin':
 -Added sprint option (hold shift to sprint)
 -Added frame limiter (primitive)
 
+
 v0.1 - Initial Update:
 =========
+:
 
 -Created gameplay window logic
 -Added mouse events that appear to console
