@@ -38,3 +38,21 @@ Use shift to sprint!
 Careful not to go to the edge of the screen! Nothing happens, but it's a glaring flaw in the game that we'd rather keep under wraps. 
 
 Enjoy!
+
+Update Log
+******************
+
+v0.2 - Now we're talkin'
+=========
+-Added character sprite
+-Added badass background
+-Added moving logic
+-Added sprint option (hold shift to sprint)
+-Added frame limiter (primitive)
+
+v0.1 - Initial Update
+=========
+-Created gameplay window logic
+-Added mouse events that appear to console
+
+
