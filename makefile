@@ -4,7 +4,7 @@
 #e.g. g++ $(TARGET) calls g++ on target.
 TARGET	= SMFL
 RM 		= rm -f
-LINKS 	= -lsfml-system -lsfml-window -lsfml-graphics
+LINKS 	= -lsfml-system -lsfml-window -lsfml-graphics -lsfml-audio lsfml-network
 
 # The terms to the right on the same line
 # as a command declaration are dependencies
