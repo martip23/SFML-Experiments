@@ -28,7 +28,7 @@ all:	$(TARGET)
 # you don't have to run make clean, you can just
 # run make
 $(TARGET): $(OBJS)
-	$(GCC) $(FLAGS) $^ -o $@ $( )
+	$(GCC) $(FLAGS) $^ -o $@
 	
 # this one doesn't really create any files,
 # but it can be used like a command
