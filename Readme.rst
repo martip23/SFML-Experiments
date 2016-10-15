@@ -1,5 +1,5 @@
 SFML Personal Exploration Project
-==================
+======================================
 
 :Author: Patrick L. Martinez
 :Date: 10/7/2016
@@ -9,7 +9,7 @@ This is a test of my first use of SFML, small fast multimedia library, so I can 
 
 
 To be able to build these files, you need the SFML libraries.
-********************
+****************************************************************
 
 To install on linux use::
 
@@ -35,15 +35,17 @@ SFML Experiments is a minimalist role playing dungeon crawler currently lacking 
 To play, run the executable. Use the arrow keys to move left, right, up or down. 
 Use shift to sprint!
 
-Careful not to go to the edge of the screen! Nothing happens, but it's a glaring flaw in the game that we'd rather keep under wraps. 
-
 Enjoy!
 
 Update Log
 ******************
 
+v0.3 - Out of bounds
+========================
+- Added collision detection to the edges of screen so it's no longer possible to run off the edge of the screen
+
 v0.2 - Now we're talkin'
-=========
+===========================
 
 - Added character sprite
 - Added badass background
@@ -53,7 +55,7 @@ v0.2 - Now we're talkin'
 
 
 v0.1 - Initial Update
-=========
+=======================
 
 - Created gameplay window logic
 - Added mouse events that appear to console

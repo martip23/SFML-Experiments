@@ -10,10 +10,14 @@ int main()
     int windowYSize     = 600;
     float characterPosX    = 395;
     float characterPosY    = 295;
+    float charScaleFactorX  = 5.0;
+    float charScaleFactorY  = 5.0;
+    int charSizeX           = 10;
+    int charSizeY           = 13;
     int movementSpeed   = 1;
     
     //Create window
-    sf::RenderWindow window(sf::VideoMode(windowXSize, windowYSize), "Game v0.2");
+    sf::RenderWindow window(sf::VideoMode(windowXSize, windowYSize), "Game v0.3");
     sf::Clock clock; //Start clock for frame limiter
 
     //Load textures
@@ -37,8 +41,8 @@ int main()
     sf::Sprite character;
 
     character.setTexture(texture);
-    character.setTextureRect(sf::IntRect(19,19,10,15));
-    character.setScale(sf::Vector2f(5.0, 5.0));
+    character.setTextureRect(sf::IntRect(19,19,charSizeX,charSizeY));
+    character.setScale(sf::Vector2f(charScaleFactorX, charScaleFactorY));
                 
     // run the program as long as the window is open
     while (window.isOpen())
@@ -51,37 +55,42 @@ int main()
         sf::Event event;
         while (window.pollEvent(event))
         {
-            if (event.type == sf::Event::MouseEntered)
+           /* if (event.type == sf::Event::MouseEntered)
                 std::cout << "The mouse has entered the arena!" << std::endl;
 
             if (event.type == sf::Event::MouseLeft)
                 std::cout << "The cowardly mouse has left!" << std:: endl;
-
+            */
             // "close requested" event: we close the window
             if (event.type == sf::Event::Closed) {
                 window.close();
                 std::cout << "Window, ye will be missed" << std::endl;
-            }
+            }/*
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
                 std::cout << "Mouse is being crushed!!" << std::endl;
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
                 window.close();
-            }
+            }*/
         }
 
         // Use keyboard class for *smooth* keyboard input
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
-            characterPosX -= movementSpeed;
+            if (characterPosX <= 0) {}
+
+            else {characterPosX -= movementSpeed;}
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
-            characterPosX += movementSpeed;
+            if (characterPosX >= windowXSize - (charScaleFactorX * charSizeX)) {}
+            else { characterPosX += movementSpeed; }
         }       
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
-            characterPosY += movementSpeed;
+            if (characterPosY >= windowYSize - (charScaleFactorY * charSizeY)){}
+            else { characterPosY += movementSpeed; }
         }       
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
-            characterPosY -= movementSpeed;
+            if (characterPosY <= 0) {}
+            else {characterPosY -= movementSpeed;}
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)){
             movementSpeed = 3;
